@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import Prism from 'prismjs';
 import {onMounted, ref } from 'vue'
-import Prism from "prismjs";
+import "prismjs/themes/prism.css";
 import "prismjs/themes/prism.css"
+
 
 const showCopyIcon = ref(true)
 const props = defineProps<{
