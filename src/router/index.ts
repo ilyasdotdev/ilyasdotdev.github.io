@@ -6,9 +6,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      redirect() {
-        return '/os/lib/spring-jwt-auth'
-      },
+      redirect: '/os/lib/spring-jwt-auth',
     },
     {
       path: '/os/lib/spring-jwt-auth',
