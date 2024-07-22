@@ -65,7 +65,7 @@ const dependencyCode = ref(`
 <dependency>
   <groupId>io.github.ilyasdotdev</groupId>
   <artifactId>spring-jwt-auth</artifactId>
-  <version>0.0.1</version>
+  <version>1.1.0</version>
 </dependency>
 `)
 
