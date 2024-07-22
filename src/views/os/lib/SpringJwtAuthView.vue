@@ -29,9 +29,6 @@
       </ul>
       <p class="my-5">Add the following dependency to the project.</p>
       <CodeBlock :code="dependencyCode" language="xml"></CodeBlock>
-      <p class="my-5">To let spring scan library package, Add below code to main class.
-      </p>
-      <CodeBlock :code="dependencyInjectionCode" language="java"></CodeBlock>
       <p class="my-5">Create an implementation of Token interface to represent our json web token</p>
       <CodeBlock :code="jwtToken" language="java"></CodeBlock>
       <p class="my-5">
@@ -70,10 +67,6 @@ const dependencyCode = ref(`
   <artifactId>spring-jwt-auth</artifactId>
   <version>0.0.1</version>
 </dependency>
-`)
-
-const dependencyInjectionCode = ref(`
-@ComponentScan(basePackages = {"io.github.ilyasdotdev.spring.auth.jwt"})
 `)
 
 const securityFilterChain = ref(`
