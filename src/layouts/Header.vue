@@ -15,6 +15,10 @@ const items = ref([
       {
         label: 'Spring JWT Auth',
         command: () => router.push('/os/lib/spring-jwt-auth')
+      },
+      {
+        label: 'Spring Boot Microservice Security JWT',
+        command: () => router.push('/os/lib/spring-boot-microservice-security-jwt')
       }
     ]
   },

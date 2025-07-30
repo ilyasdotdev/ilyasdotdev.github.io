@@ -12,6 +12,11 @@ const router = createRouter({
       path: '/os/lib/spring-jwt-auth',
       name: 'spring-jwt-auth',
       component: () => import('@/views/os/lib/SpringJwtAuthView.vue')
+    },
+    {
+      path: '/os/lib/spring-boot-microservice-security-jwt',
+      name: 'spring-boot-microservice-security-jwt',
+      component: () => import('@/views/os/lib/SpringBootMicroserviceSecurityJwtView.vue')
     }
   ]
 })
