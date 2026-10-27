@@ -22,7 +22,7 @@ const projects = [
     to: '/projects/generic-pos',
     title: 'Generic POS',
     tag: 'Retail shops',
-    image: null,
+    image: '/images/gpos/pos-sale.webp',
     text: 'A fast point of sale for small shops: kiryana, hardware, electrical, cosmetics, mobile accessories, auto parts, garments and more.',
     points: ['Scan to screen in under 50 ms', 'Khata, stock and suppliers built in', 'Nine shop types, one product']
   }
@@ -98,23 +98,8 @@ const principles = [
           <RouterLink v-for="p in projects" :key="p.to" :to="p.to"
                       class="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
             <div class="relative aspect-[16/9] overflow-hidden bg-gray-100">
-              <img v-if="p.image" :src="p.image" :alt="p.title"
+              <img :src="p.image" :alt="p.title"
                    class="h-full w-full object-cover object-top transition duration-500 group-hover:scale-105" />
-              <!-- Generic POS has no screenshots yet, so draw a small till instead -->
-              <div v-else
-                   class="flex h-full w-full items-center justify-center bg-gradient-to-br from-green-700 to-emerald-900 p-6">
-                <div class="w-full max-w-sm rounded-xl bg-white/95 p-4 text-gray-800 shadow-2xl font-mono text-xs transition duration-500 group-hover:scale-105">
-                  <div class="flex justify-between border-b border-dashed border-gray-300 pb-2 font-bold">
-                    <span>Counter 1</span><span>F9 Pay</span>
-                  </div>
-                  <div class="flex justify-between py-1"><span>Basmati rice 5 kg</span><span>1,850</span></div>
-                  <div class="flex justify-between py-1"><span>Cooking oil 1 L × 2</span><span>1,180</span></div>
-                  <div class="flex justify-between py-1"><span>Tea 475 g</span><span>1,095</span></div>
-                  <div class="flex justify-between border-t border-dashed border-gray-300 pt-2 text-sm font-bold">
-                    <span>Total</span><span class="text-green-700">Rs 4,125</span>
-                  </div>
-                </div>
-              </div>
               <span class="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-green-800 shadow">{{ p.tag }}</span>
             </div>
             <div class="flex flex-1 flex-col p-6">

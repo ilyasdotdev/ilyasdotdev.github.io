@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Image from 'primevue/image'
 import Tag from 'primevue/tag'
 
 const email = 'm.ilyas@live.com'
@@ -8,7 +9,7 @@ const whatsappUrl = `https://wa.me/923218916364?text=${encodeURIComponent(demoMe
 const emailUrl = `mailto:${email}?subject=${encodeURIComponent('Generic POS demo')}`
 
 // Plain #anchors would be read as routes by the hash router, so scroll by hand
-const scrollToShopTypes = () => document.getElementById('shop-types')?.scrollIntoView({ behavior: 'smooth' })
+const scrollToScreens = () => document.getElementById('screens')?.scrollIntoView({ behavior: 'smooth' })
 
 const highlights = [
   { value: '< 50 ms', label: 'from barcode scan to item on screen' },
@@ -77,6 +78,44 @@ const shopTypes = [
   { icon: 'pi pi-shop', title: 'General retail', text: 'The core features, ready for any other shop' }
 ]
 
+const screens = [
+  {
+    src: '/images/gpos/pos-sale.webp',
+    title: 'Sale screen',
+    caption: 'Scan or type a name, quick keys for loose items, and a shortcut key for every action.'
+  },
+  {
+    src: '/images/gpos/pos-payment.webp',
+    title: 'Taking payment',
+    caption: 'Cash, card, JazzCash, Easypaisa, bank transfer or khata, with quick cash amounts and split payments.'
+  },
+  {
+    src: '/images/gpos/owner-dashboard.webp',
+    title: 'Owner dashboard',
+    caption: 'Today\'s sales, profit, cash in drawers, money owed both ways and stock that needs attention.'
+  },
+  {
+    src: '/images/gpos/reports.webp',
+    title: 'Reports',
+    caption: 'Pick a report and dates, then save it as Excel or CSV or print it.'
+  },
+  {
+    src: '/images/gpos/customers.webp',
+    title: 'Customers',
+    caption: 'Every customer\'s credit limit and khata balance in one list.'
+  },
+  {
+    src: '/images/gpos/who-owes-what.webp',
+    title: 'Who owes what',
+    caption: 'Customer balances by age, so you know who to remind first.'
+  },
+  {
+    src: '/images/gpos/what-to-buy.webp',
+    title: 'What to buy',
+    caption: 'Items at or below their reorder level, turned into a purchase order in one click.'
+  }
+]
+
 const advantages = [
   {
     title: 'No internet needed',
@@ -132,35 +171,14 @@ const advantages = [
                class="inline-flex items-center gap-2 rounded border border-green-700 px-4 py-2 font-bold text-green-700 hover:bg-green-50">
               <i class="pi pi-envelope" /> Email
             </a>
-            <button type="button" @click="scrollToShopTypes"
+            <button type="button" @click="scrollToScreens"
                class="inline-flex items-center gap-2 rounded border border-green-700 px-4 py-2 font-bold text-green-700 hover:bg-green-50">
-              <i class="pi pi-shop" /> Shop types
+              <i class="pi pi-images" /> See the screens
             </button>
           </div>
         </div>
-        <!-- A small sale screen drawn in markup until real screenshots are added -->
-        <div class="rounded-2xl bg-gradient-to-br from-green-700 to-emerald-900 p-6 sm:p-10 shadow-lg">
-          <div class="rounded-xl bg-white p-5 shadow-2xl font-mono text-sm text-gray-800">
-            <div class="flex items-center gap-2 rounded border border-gray-300 px-3 py-2 text-gray-500">
-              <i class="pi pi-barcode" /> 8964000100011
-              <span class="ml-auto rounded bg-gray-100 px-2 text-xs">F2</span>
-            </div>
-            <div class="mt-4 space-y-2">
-              <div class="flex justify-between"><span>Basmati rice 5 kg</span><span>1,850.00</span></div>
-              <div class="flex justify-between"><span>Cooking oil 1 L × 2</span><span>1,180.00</span></div>
-              <div class="flex justify-between"><span>Sugar 2.345 kg</span><span>375.20</span></div>
-              <div class="flex justify-between text-green-700"><span>Bill discount</span><span>−30.20</span></div>
-            </div>
-            <div class="mt-4 flex justify-between border-t border-dashed border-gray-300 pt-3 text-lg font-bold">
-              <span>Total</span><span>Rs 3,375.00</span>
-            </div>
-            <div class="mt-4 grid grid-cols-3 gap-2 text-center text-xs">
-              <span class="rounded bg-gray-100 py-2">F4 Hold</span>
-              <span class="rounded bg-gray-100 py-2">F6 Khata</span>
-              <span class="rounded bg-green-700 py-2 font-bold text-white">F9 Pay</span>
-            </div>
-          </div>
-        </div>
+        <Image src="/images/gpos/pos-sale.webp" alt="Generic POS sale screen" preview
+               image-class="rounded-lg shadow-lg border border-gray-200" />
       </section>
 
       <!-- Highlights -->
@@ -179,6 +197,19 @@ const advantages = [
           <h3 class="text-xl font-bold py-2">{{ f.title }}</h3>
           <p class="text-gray-700">{{ f.text }}</p>
         </div>
+      </section>
+
+      <!-- Screens -->
+      <h2 id="screens" class="text-3xl font-bold py-5 mt-5">Screens</h2>
+      <p class="text-lg mb-5">Click any screen to see it full size.</p>
+      <section class="grid gap-8 md:grid-cols-2">
+        <figure v-for="s in screens" :key="s.src">
+          <Image :src="s.src" :alt="s.title" preview
+                 image-class="w-full aspect-[16/10] object-cover object-top rounded-lg shadow border border-gray-200" />
+          <figcaption class="mt-2">
+            <span class="font-bold">{{ s.title }}.</span> {{ s.caption }}
+          </figcaption>
+        </figure>
       </section>
 
       <!-- Shop types -->
