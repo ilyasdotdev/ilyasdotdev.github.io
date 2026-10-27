@@ -27,7 +27,8 @@ const items = ref([
     icon: 'pi pi-search',
     items: [
       {
-        label: 'Coming soon'
+        label: 'Restaurant Management System',
+        command: () => router.push('/projects/restaurant-management-system')
       }
     ]
   }

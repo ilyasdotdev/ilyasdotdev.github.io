@@ -17,6 +17,11 @@ const router = createRouter({
       path: '/os/lib/spring-boot-microservice-security-jwt',
       name: 'spring-boot-microservice-security-jwt',
       component: () => import('@/views/os/lib/SpringBootMicroserviceSecurityJwtView.vue')
+    },
+    {
+      path: '/projects/restaurant-management-system',
+      name: 'restaurant-management-system',
+      component: () => import('@/views/projects/RestaurantManagementSystemView.vue')
     }
   ]
 })
