@@ -13,10 +13,6 @@ const items = ref([
     icon: 'pi pi-book',
     items: [
       {
-        label: 'Spring JWT Auth',
-        command: () => router.push('/os/lib/spring-jwt-auth')
-      },
-      {
         label: 'Spring Boot Microservice Security JWT',
         command: () => router.push('/os/lib/spring-boot-microservice-security-jwt')
       }
@@ -24,11 +20,15 @@ const items = ref([
   },
   {
     label: 'Projects',
-    icon: 'pi pi-search',
+    icon: 'pi pi-briefcase',
     items: [
       {
         label: 'Restaurant Management System',
         command: () => router.push('/projects/restaurant-management-system')
+      },
+      {
+        label: 'Generic POS',
+        command: () => router.push('/projects/generic-pos')
       }
     ]
   }
@@ -56,8 +56,12 @@ const items = ref([
       </a>
     </template>
     <template #end>
-      <a href="https://www.linkedin.com/in/muhammad-ilyas-2012/" target="_blank"><i
-        class="pi pi-linkedin text-blue-600"></i></a>
+      <div class="flex items-center gap-4">
+        <a href="https://github.com/ilyasdotdev" target="_blank" aria-label="GitHub"><i
+          class="pi pi-github text-gray-800"></i></a>
+        <a href="https://www.linkedin.com/in/muhammad-ilyas-2012/" target="_blank" aria-label="LinkedIn"><i
+          class="pi pi-linkedin text-blue-600"></i></a>
+      </div>
     </template>
   </Menubar>
 </template>
