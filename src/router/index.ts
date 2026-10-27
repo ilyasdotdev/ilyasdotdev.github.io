@@ -1,17 +1,14 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import HomeView from '@/views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
+  scrollBehavior: () => ({ top: 0 }),
   routes: [
     {
       path: '/',
       name: 'home',
-      redirect: '/os/lib/spring-jwt-auth',
-    },
-    {
-      path: '/os/lib/spring-jwt-auth',
-      name: 'spring-jwt-auth',
-      component: () => import('@/views/os/lib/SpringJwtAuthView.vue')
+      component: HomeView
     },
     {
       path: '/os/lib/spring-boot-microservice-security-jwt',
@@ -22,6 +19,15 @@ const router = createRouter({
       path: '/projects/restaurant-management-system',
       name: 'restaurant-management-system',
       component: () => import('@/views/projects/RestaurantManagementSystemView.vue')
+    },
+    {
+      path: '/projects/generic-pos',
+      name: 'generic-pos',
+      component: () => import('@/views/projects/GenericPosView.vue')
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: '/'
     }
   ]
 })
