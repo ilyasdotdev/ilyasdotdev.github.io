@@ -2,6 +2,12 @@
 import Image from 'primevue/image'
 import Tag from 'primevue/tag'
 
+const email = 'm.ilyas@live.com'
+const whatsappNumber = '+92-321-8916364'
+const demoMessage = 'Hi, I would like a demo of the Restaurant Management System.'
+const whatsappUrl = `https://wa.me/923218916364?text=${encodeURIComponent(demoMessage)}`
+const emailUrl = `mailto:${email}?subject=${encodeURIComponent('Restaurant Management System demo')}`
+
 // Plain #anchors would be read as routes by the hash router, so scroll by hand
 const scrollToScreens = () => document.getElementById('screens')?.scrollIntoView({ behavior: 'smooth' })
 
@@ -145,9 +151,13 @@ const screens = [
             <li class="flex gap-2"><i class="pi pi-check-circle text-green-700 mt-1" />Optional cloud head office for reports across all branches</li>
           </ul>
           <div class="mt-6 flex flex-wrap gap-3">
-            <a href="https://www.linkedin.com/in/muhammad-ilyas-2012/" target="_blank"
+            <a :href="whatsappUrl" target="_blank"
                class="inline-flex items-center gap-2 rounded bg-green-700 px-4 py-2 font-bold text-white hover:bg-green-800">
-              <i class="pi pi-linkedin" /> Ask for a demo
+              <i class="pi pi-whatsapp" /> Ask for a demo
+            </a>
+            <a :href="emailUrl"
+               class="inline-flex items-center gap-2 rounded border border-green-700 px-4 py-2 font-bold text-green-700 hover:bg-green-50">
+              <i class="pi pi-envelope" /> Email
             </a>
             <button type="button" @click="scrollToScreens"
                class="inline-flex items-center gap-2 rounded border border-green-700 px-4 py-2 font-bold text-green-700 hover:bg-green-50">
@@ -218,10 +228,19 @@ const screens = [
       <div class="bg-gray-100 p-5 rounded-lg my-10">
         <p class="font-bold">Interested?</p>
         <p>
-          RMS is built with and for a multi-branch restaurant in Pakistan, and works for any country's tax and currency. To see a demo or talk about your restaurant,
-          message me on
-          <a href="https://www.linkedin.com/in/muhammad-ilyas-2012/" target="_blank" class="text-blue-500">LinkedIn</a>.
+          RMS is built with and for a multi-branch restaurant in Pakistan, and works for any country's tax and currency.
+          To see a demo or talk about your restaurant, get in touch:
         </p>
+        <ul class="mt-3 space-y-2">
+          <li class="flex items-center gap-2">
+            <i class="pi pi-whatsapp text-green-700" />
+            <a :href="whatsappUrl" target="_blank" class="text-blue-500">{{ whatsappNumber }}</a> (WhatsApp)
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="pi pi-envelope text-green-700" />
+            <a :href="emailUrl" class="text-blue-500">{{ email }}</a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
